@@ -24,16 +24,16 @@ class Usuario extends Model
         $usuarios = Usuario::leftjoin('empresas', 'usuarios.empresa_id', 'empresas.id')
             ->where(function ($query) use($request) {
                 if (isset($request->id)) {
-                    return $query->where('usuarios.id', $request->id);
+                    $query->where('usuarios.id', $request->id);
                 }
                 if (isset($request->usuario_nome)) {
-                    return $query->where('usuarios.usuario_nome', 'like', '%'. $request->usuario_nome .'%');
+                    $query->where('usuarios.usuario_nome', 'like', '%'. $request->usuario_nome .'%');
                 }
                 if (isset($request->empresa_id)) {
-                    return $query->where('usuarios.empresa_id', $request->empresa_id);
+                    $query->where('usuarios.empresa_id', $request->empresa_id);
                 }
                 if (isset($request->empresa_nome)) {
-                    return $query->where('empresas.empresa_nome', 'like', '%'. $request->empresa_nome .'%');
+                    $query->where('empresas.empresa_nome', 'like', '%'. $request->empresa_nome .'%');
                 }
             })
             ->select('usuarios.*', 'empresas.empresa_nome')

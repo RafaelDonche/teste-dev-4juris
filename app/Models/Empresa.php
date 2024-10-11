@@ -19,10 +19,10 @@ class Empresa extends Model
     {
         $empresas = Empresa::where(function ($query) use($request) {
                 if (isset($request->id)) {
-                    return $query->where('id', $request->id);
+                    $query->where('id', $request->id);
                 }
                 if (isset($request->empresa_nome)) {
-                    return $query->where('empresa_nome', 'like', '%'. $request->empresa_nome .'%');
+                    $query->where('empresa_nome', 'like', '%'. $request->empresa_nome .'%');
                 }
             })
             ->paginate(15);

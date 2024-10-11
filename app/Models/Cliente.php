@@ -24,16 +24,16 @@ class Cliente extends Model
         $clientes = Cliente::leftjoin('usuarios', 'clientes.usuario_id', 'usuarios.id')
             ->where(function ($query) use($request) {
                 if (isset($request->id)) {
-                    return $query->where('clientes.id', $request->id);
+                    $query->where('clientes.id', $request->id);
                 }
                 if (isset($request->cliente_nome)) {
-                    return $query->where('clientes.cliente_nome', 'like', '%'. $request->cliente_nome .'%');
+                    $query->where('clientes.cliente_nome', 'like', '%'. $request->cliente_nome .'%');
                 }
                 if (isset($request->usuario_id)) {
-                    return $query->where('clientes.usuario_id', $request->usuario_id);
+                    $query->where('clientes.usuario_id', $request->usuario_id);
                 }
                 if (isset($request->usuario_nome)) {
-                    return $query->where('usuarios.usuario_nome', 'like', '%'. $request->usuario_nome .'%');
+                    $query->where('usuarios.usuario_nome', 'like', '%'. $request->usuario_nome .'%');
                 }
             })
             ->select('clientes.*', 'usuarios.usuario_nome')

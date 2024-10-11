@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Rules\UsuarioRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ClienteUpdateFormRequest extends FormRequest
 {
@@ -25,8 +26,8 @@ class ClienteUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'cliente_nome' => 'nullable|max:255',
-            'usuario_id' => ['nullable', 'integer', new UsuarioRule],
+            'cliente_nome' => ['sometimes', 'required', 'max:255'],
+            'usuario_id' => ['sometimes', 'required', 'integer', new UsuarioRule],
         ];
     }
 

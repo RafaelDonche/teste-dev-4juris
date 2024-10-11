@@ -25,8 +25,8 @@ class UsuarioUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'usuario_nome' => 'nullable|max:255',
-            'empresa_id' => ['nullable', 'integer', new EmpresaRule],
+            'usuario_nome' => ['sometimes', 'required', 'max:255'],
+            'empresa_id' => ['sometimes', 'required', 'integer', new EmpresaRule],
         ];
     }
 
