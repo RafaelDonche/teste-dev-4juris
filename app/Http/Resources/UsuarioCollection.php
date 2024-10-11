@@ -26,8 +26,8 @@ class UsuarioCollection extends ResourceCollection
                 'id' => $item->id,
                 'nome' => $item->usuario_nome,
                 'empresa' => $empresa,
-                'cadastrado em' => date('d/m/Y H:i:s', strtotime($item->created_at)),
-                'atualizado em' => date('d/m/Y H:i:s', strtotime($item->updated_at))
+                'cadastradoEm' => date('d/m/Y H:i:s', strtotime($item->created_at)),
+                'atualizadoEm' => date('d/m/Y H:i:s', strtotime($item->updated_at))
             ]);
         }
 

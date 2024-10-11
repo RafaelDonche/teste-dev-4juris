@@ -20,8 +20,8 @@ class EmpresaCollection extends ResourceCollection
             array_push($empresas, [
                 'id' => $item->id,
                 'nome' => $item->empresa_nome,
-                'cadastrado em' => date('d/m/Y H:i:s', strtotime($item->created_at)),
-                'atualizado em' => date('d/m/Y H:i:s', strtotime($item->updated_at))
+                'cadastradoEm' => date('d/m/Y H:i:s', strtotime($item->created_at)),
+                'atualizadoEm' => date('d/m/Y H:i:s', strtotime($item->updated_at))
             ]);
         }
 
